@@ -1,0 +1,24 @@
+server:
+  port: ${port:9091}
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xiaozhi?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 1234
+  thymeleaf:
+    cache: false
+  application:
+    name: account-server
+mybatis:
+  type-aliases-package: com.wmz.server_service.bean
+  mapper-locations: classpath:/mapper/*.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10088/eureka
+  instance:
+#    服务断开时间区间
+    lease-expiration-duration-in-seconds: 90
+#    服务续约时间间隔
+    lease-renewal-interval-in-seconds: 30
